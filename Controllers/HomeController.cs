@@ -23,7 +23,7 @@ namespace SimpleBlogMVC.Controllers
             return View();
         }
 
-        public IActionResult AboutUs()
+        public IActionResult About()
         {
             return View();
         }
@@ -34,7 +34,7 @@ namespace SimpleBlogMVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult ContactWithUs()
+        public IActionResult Contact()
         {
             return View();
         }
