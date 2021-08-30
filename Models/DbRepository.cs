@@ -14,7 +14,7 @@ namespace SimpleBlogMVC.Models
         void EditPost();
         void DeletePost();
         void DeactivatePost();
-        void GetPost();
+        Article GetPost(int id);
         List<Article> GetArticles();
     }
     public class DbRepository : IBlog
@@ -37,7 +37,7 @@ namespace SimpleBlogMVC.Models
 
         public void DeactivatePost()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void DeletePost()
@@ -55,9 +55,12 @@ namespace SimpleBlogMVC.Models
             throw new NotImplementedException();
         }
 
-        public void GetPost()
+        public Article GetPost(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                return db.Query<Article>("SELECT * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault(); 
+            }
         }
     }
 }
