@@ -11,11 +11,13 @@ namespace SimpleBlogMVC.Controllers
 {
     public class HomeController : Controller
     {
+        IBlog blog;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBlog b)
         {
             _logger = logger;
+            blog = b;
         }
 
         public IActionResult Index()

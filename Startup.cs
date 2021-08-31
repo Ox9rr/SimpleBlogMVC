@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SimpleBlogMVC.Models;
+
 
 namespace SimpleBlogMVC
 {
@@ -23,6 +25,9 @@ namespace SimpleBlogMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = "Server=.\\SQLEXPRESS;Initial Catalog=userstore;Integrated Security=True";
+            services.AddTransient<IBlog, DbRepository>(provider => new DbRepository(connectionString));
+            services.AddControllersWithViews();
             services.AddControllersWithViews();
         }
 
