@@ -13,7 +13,7 @@ namespace SimpleBlogMVC.Models
         void CreatePost(Article article);
         void EditPost();
         void DeletePost();
-        void DeactivatePost();
+        void DeactivatePost(int id);
         Article GetPost(int id);
         List<Article> GetArticles();
         List<Article> GetArticlesOnHomePage();
