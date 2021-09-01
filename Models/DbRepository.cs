@@ -58,7 +58,7 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Article>("SELECT * FROM Articles WHERE OnHomePage=1").ToList();
+                return db.Query<Article>("SELECT * FROM Articles").ToList();
             }
         }
 
@@ -72,7 +72,10 @@ namespace SimpleBlogMVC.Models
 
         public List<Article> GetArticlesOnHomePage()
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                return db.Query<Article>("SELECT * FROM Articles WHERE OnHomePage=1").ToList();
+            }
         }
     }
 }
