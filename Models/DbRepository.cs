@@ -36,9 +36,12 @@ namespace SimpleBlogMVC.Models
             }
         }
 
-        public void DeactivatePost()
+        public void DeactivatePost(int id)
         {
-            
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Query<Article>("UPDATE Articles set IsActive = 0 WHERE ID = @Id", new { id }).FirstOrDefault();
+            }
         }
 
         public void DeletePost()
