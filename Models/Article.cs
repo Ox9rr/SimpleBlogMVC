@@ -13,6 +13,7 @@ namespace SimpleBlogMVC.Models
         public DateTime DateCreation { get; set; }
         public bool IsActive { get; set; }
         public bool OnHomePage { get; set; }
+        public string Content { get; set }
         //public int TagForArticlesId { get; set; }
     }
 }
