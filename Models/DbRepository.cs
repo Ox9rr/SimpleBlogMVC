@@ -13,7 +13,7 @@ namespace SimpleBlogMVC.Models
         void CreatePost(Article article);
         Article EditPost();
         void DeletePost();
-        void DeactivatePost(int id);
+        //void DeactivatePost(int id);
         Article GetPost(int id);
         List<Article> GetArticles();
         List<Article> GetArticlesOnHomePage();
@@ -36,13 +36,13 @@ namespace SimpleBlogMVC.Models
             }
         }
 
-        public void DeactivatePost(int id)
-        {
-            using (IDbConnection db = new SqlConnection(connectionString))
-            {
-                db.Query<Article>("UPDATE Articles set IsActive = 0 WHERE ID = @Id", new { id }).FirstOrDefault();
-            }
-        }
+        //public void DeactivatePost(int id)
+        //{
+        //    using (IDbConnection db = new SqlConnection(connectionString))
+        //    {
+        //        db.Query<Article>("UPDATE Articles set IsActive = 0 WHERE ID = @Id", new { id }).FirstOrDefault();
+        //    }
+        //}
 
         public void DeletePost()
         {
