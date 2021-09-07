@@ -51,10 +51,11 @@ namespace SimpleBlogMVC.Models
 
         public Article EditPost()
         {
-            using (IDbConnection db = new SqlConnection(connectionString))
-            {
-                return db.Query<Article>("Update * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault();
-            }
+            //using (IDbConnection db = new SqlConnection(connectionString))
+            //{
+            //    return db.Query<Article>("Update * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault();
+            //}
+            return null;
         }
 
         public List<Article> GetArticles()
