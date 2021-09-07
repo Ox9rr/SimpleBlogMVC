@@ -11,7 +11,7 @@ namespace SimpleBlogMVC.Models
     public interface IBlog
     {
         void CreatePost(Article article);
-        Article EditPost();
+        Article EditPost(int id);
         void DeletePost();
         //void DeactivatePost(int id);
         Article GetPost(int id);
@@ -49,13 +49,12 @@ namespace SimpleBlogMVC.Models
             throw new NotImplementedException();
         }
 
-        public Article EditPost()
+        public Article EditPost(int id)
         {
-            //using (IDbConnection db = new SqlConnection(connectionString))
-            //{
-            //    return db.Query<Article>("Update * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault();
-            //}
-            return null;
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                return db.Query<Article>("Update * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault();
+            }
         }
 
         public List<Article> GetArticles()
