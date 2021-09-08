@@ -124,4 +124,4 @@ C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\bin\Debug\netcoreapp3.1\runti
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
-C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Controllers\Test.cshtml.g.cs
+C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs

@@ -25,7 +25,9 @@ namespace SimpleBlogMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = "Server=.\\SQLEXPRESS;Initial Catalog=userstore;Integrated Security=True";
+            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=BlogDB;User ID=admin;pwd=admin;Trusted_Connection=True;MultipleActiveResultSets=true";
+            ////string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=aspnet-SimpleBlogMVC;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\\BlogDB.mdf";
+            //string connectionString = "Server=(localdb)\\mssqllocaldb;Database=BlogDB;Trusted_Connection=True;";
             services.AddTransient<IBlog, DbRepository>(provider => new DbRepository(connectionString));
             services.AddControllersWithViews();
             services.AddControllersWithViews();
