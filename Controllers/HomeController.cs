@@ -59,5 +59,10 @@ namespace SimpleBlogMVC.Controllers
         {
             return View(blog.GetArticles());
         }
+        [Route("TestHomePage")]
+        public IActionResult TestHomePage()
+        {
+            return View(blog.GetArticlesOnHomePage());
+        }
     }
 }
