@@ -48,6 +48,13 @@ namespace SimpleBlogMVC.Controllers
             //return View(blog.GetArticles()); //- here  will retur all posts - correct code 
         }
 
+        public IActionResult EditPost(int id)
+        {
+            return View(blog.EditPost(id));
+        }
+
+
+        [Route("justTest")]
         public IActionResult Test()
         {
             return View(blog.GetArticles());
