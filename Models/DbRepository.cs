@@ -61,7 +61,17 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Article>("SELECT * FROM Articles").ToList();
+                List<Article> testArticle = new List<Article>();
+                testArticle.Add(new Article() { Title = "KekTitle" });
+                try
+                {
+                    return db.Query<Article>("SELECT * FROM Articles").ToList();
+                }
+                catch(Exception ex)
+                {
+                    //return testArticle.Add(new Article() { Title = "KekTitle" });
+                }
+                return testArticle;
             }
         }
 
