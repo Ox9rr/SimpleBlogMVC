@@ -71,7 +71,8 @@ namespace SimpleBlogMVC.Models
                 {
                     //return testArticle.Add(new Article() { Title = "KekTitle" });
                 }
-                return testArticle;
+                //return testArticle;
+                return db.Query<Article>("SELECT * FROM Articles").ToList();
             }
         }
 
