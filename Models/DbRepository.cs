@@ -14,7 +14,7 @@ namespace SimpleBlogMVC.Models
         Article EditPost(int id);
         void DeletePost();
         //void DeactivatePost(int id);
-        Article GetPost(int id);
+        Article GetPost(string articleUrl);
         List<Article> GetArticles();
         List<Article> GetArticlesOnHomePage();
     }
@@ -76,11 +76,11 @@ namespace SimpleBlogMVC.Models
             }
         }
 
-        public Article GetPost(int id)
+        public Article GetPost(string articleUrl)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Article>("SELECT * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault(); 
+                return db.Query<Article>("SELECT * FROM Articles WHERE ArticleUrl = @articleUrl", new { articleUrl }).FirstOrDefault(); 
             }
         }
 

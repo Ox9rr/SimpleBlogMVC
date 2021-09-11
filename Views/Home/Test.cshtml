@@ -12,6 +12,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Content</th>
+        <th>ArticleUrl</th>
         <th></th>
     </tr>
 
@@ -22,9 +23,10 @@
     <td>@item.Title</td>
     <td>@item.Description</td>
     <td>@item.Content</td>
+    <td>@item.ArticleUrl</td>
     <td>
-        <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-        <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+        <a asp-controller="Home" asp-action="TestGetPost" asp-route-url="@item.ArticleUrl">CheckPost</a> |
+        @*<a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>*@
     </td>
 </tr>
     }

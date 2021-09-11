@@ -14,6 +14,7 @@ namespace SimpleBlogMVC.Models
         public bool IsActive { get; set; }
         public bool OnHomePage { get; set; }
         public string Content { get; set; }
+        public string ArticleUrl { get; set; }
         //public int TagForArticlesId { get; set; }
     }
 }

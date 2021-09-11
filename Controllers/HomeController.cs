@@ -12,6 +12,7 @@ namespace SimpleBlogMVC.Controllers
     public class HomeController : Controller
     {
         IBlog blog;
+        Article article;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, IBlog b)
@@ -42,7 +43,7 @@ namespace SimpleBlogMVC.Controllers
         }
 
         [Route("allposts")]
-        public  IActionResult AllPosts()
+        public IActionResult AllPosts()
         {
             return View(); // - for test, need remove after fix
             //return View(blog.GetArticles()); //- here  will retur all posts - correct code 
@@ -54,15 +55,33 @@ namespace SimpleBlogMVC.Controllers
         }
 
 
-        [Route("justTest")]
+        [Route("justtest")]
         public IActionResult Test()
         {
             return View(blog.GetArticles());
         }
-        [Route("TestHomePage")]
+        [Route("hesthomepage")]
         public IActionResult TestHomePage()
         {
             return View(blog.GetArticlesOnHomePage());
+        }
+
+        [Route("view")]
+        public IActionResult TestGetPost(string articleUrl)
+        {
+            Article _articleItem = blog.GetPost(articleUrl);
+            List<Article> article = new List<Article>();
+            article.Add(_articleItem);
+            if (article != null)
+                try
+                {
+                    return View(article);
+                }
+                catch
+                {
+                    Exception ex;
+                }
+            return NotFound();
         }
     }
 }
