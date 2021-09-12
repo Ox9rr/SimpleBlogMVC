@@ -30,7 +30,7 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = ("INERT INTO Articles(Title, Description, DateCreation, IsActive, OnHomePage) VALUES" +
+                var sqlQuery = ("INERT INTO Articles(Title, Description, DateCreation, IsActive, OnHomePage, Content) VALUES" +
                     "@Title, @Description, @DateCreation, @IsActive, @OnHomePage");
                 db.Execute(sqlQuery, article);
             }
