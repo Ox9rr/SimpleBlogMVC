@@ -57,7 +57,10 @@ namespace SimpleBlogMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{articleurl?}");
+                endpoints.MapControllerRoute(
+                    name:"admin",
+                    pattern: "{controller=Admin}/{action=Index}/{id?}");
             });
         }
     }

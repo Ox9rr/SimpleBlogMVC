@@ -12,5 +12,11 @@ namespace SimpleBlogMVC.Controllers
         {
             return View();
         }
+
+        [Route("admin/create")]
+        public IActionResult CreatePost()
+        {
+            return View();
+        }
     }
 }
