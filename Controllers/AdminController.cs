@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SimpleBlogMVC.Models;
 
 namespace SimpleBlogMVC.Controllers
@@ -35,6 +36,23 @@ namespace SimpleBlogMVC.Controllers
         public IActionResult GetAllPosts()
         {
             return View(blog.GetArticles());
+        }
+
+        public IActionResult GetArticleDetails(int id)
+        {
+            Article _articleItem = blog.GetPostByID(id);
+            List<Article> article = new List<Article>();
+            article.Add(_articleItem);
+            if (article != null)
+                try
+                {
+                    return View(article);
+                }
+                catch
+                {
+                    Exception ex;
+                }
+            return NotFound();
         }
 
         //[Route("admin/create")]
