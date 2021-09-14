@@ -130,3 +130,4 @@ C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\TestGetPost.cshtml.g.cs
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreatePost.cshtml.g.cs
 C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\619mi\Desktop\SimpleBlogMVC\SimpleBlogMVC\obj\Debug\netcoreapp3.1\Razor\Views\Admin\GetAllPosts.cshtml.g.cs
