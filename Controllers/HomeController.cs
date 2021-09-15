@@ -45,8 +45,7 @@ namespace SimpleBlogMVC.Controllers
         [Route("allposts")]
         public IActionResult AllPosts()
         {
-            return View(); // - for test, need remove after fix
-            //return View(blog.GetArticles()); //- here  will retur all posts - correct code 
+            return View(blog.GetArticles());
         }
 
         public IActionResult EditPost(int id)
