@@ -31,8 +31,17 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = ("INSERT INTO Articles(Title, Description, DateCreation, IsActive, OnHomePage, ArticleUrl, Content) VALUES(@Title, @Description, @DateCreation, @IsActive, @OnHomePage, @ArticleUrl, @Content");
-                db.Execute(sqlQuery, article);
+                //db.Open();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("Id", article.Id);
+                param.Add("Title", article.Title);
+                param.Add("Description", article.Description);
+                param.Add("DateCreation", article.DateCreation);
+                param.Add("@IsActive", article.IsActive);
+                param.Add("@OnHomePage", article.OnHomePage);
+                param.Add("@ArticleUrl", article.ArticleUrl);
+                param.Add("@Content", article.Content);
+                ExecuteWithoutReturn("sp_CreatePost", param);
             }
         }
 
@@ -67,7 +76,7 @@ namespace SimpleBlogMVC.Models
                 {
                     return db.Query<Article>("SELECT * FROM Articles").ToList();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     //return testArticle.Add(new Article() { Title = "KekTitle" });
                 }
@@ -80,7 +89,7 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Article>("SELECT * FROM Articles WHERE ArticleUrl = @articleUrl", new { articleUrl }).FirstOrDefault(); 
+                return db.Query<Article>("SELECT * FROM Articles WHERE ArticleUrl = @articleUrl", new { articleUrl }).FirstOrDefault();
             }
         }
 
@@ -97,6 +106,15 @@ namespace SimpleBlogMVC.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 return db.Query<Article>("SELECT * FROM Articles WHERE OnHomePage=1").ToList();
+            }
+        }
+
+        public void ExecuteWithoutReturn(string procedurName, DynamicParameters param = null)
+        {
+            using (IDbConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                con.Execute(procedurName, param, commandType: CommandType.StoredProcedure);
             }
         }
     }
