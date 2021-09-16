@@ -12,7 +12,6 @@ namespace SimpleBlogMVC.Controllers
     public class AdminController : Controller
     {
         IBlog blog;
-        Article article;
         private readonly ILogger<HomeController> _logger;
 
         public AdminController(ILogger<HomeController> logger, IBlog b)
@@ -26,10 +25,19 @@ namespace SimpleBlogMVC.Controllers
             return View();
         }
 
-        [Route("admin/create")]
+
         public IActionResult CreatePost()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ActionName("CreatePost")]
+        [Route("admin/create")]
+        public IActionResult CreatePost(Article article)
+        {
+            blog.CreatePost(article);
+            return RedirectToAction("GetAllPosts");
         }
 
         [Route("admin/articles")]

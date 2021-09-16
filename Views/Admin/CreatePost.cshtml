@@ -1,8 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SimpleBlogMVC.Models.Article
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <p>Here we can create post</p>
+
+<form asp-action="CreatePost" asp-controller="Admin">
+    <div>
+        @*<div class="form-group">
+            <label asp-for="Id"></label>
+            <input type="text" asp-for="Id" class="form-control form-control-sm" />
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input type="text" asp-for="Title" class="form-control form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input type="text" asp-for="Description" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DateCreation"></label>
+            <input type="text" asp-for="DateCreation" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsActive"></label>
+            <input type="text" asp-for="IsActive" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="OnHomePage"></label>
+            <input type="text" asp-for="OnHomePage" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ArticleUrl"></label>
+            <input type="text" asp-for="ArticleUrl" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Content"></label>
+            <input type="text" asp-for="Content" class="form-control  form-control-sm" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-outline-secondary" />
+        </div>
+    </div>
+</form>
