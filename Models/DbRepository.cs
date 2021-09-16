@@ -31,27 +31,21 @@ namespace SimpleBlogMVC.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                //db.Open();
                 DynamicParameters param = new DynamicParameters();
-                param.Add("Id", article.Id);
-                param.Add("Title", article.Title);
-                param.Add("Description", article.Description);
-                param.Add("DateCreation", article.DateCreation);
+                param.Add("@Id", article.Id);
+                param.Add("@Title", article.Title);
+                param.Add("@Description", article.Description);
+                param.Add("@DateCreation", article.DateCreation);
                 param.Add("@IsActive", article.IsActive);
                 param.Add("@OnHomePage", article.OnHomePage);
                 param.Add("@ArticleUrl", article.ArticleUrl);
                 param.Add("@Content", article.Content);
-                ExecuteWithoutReturn("sp_CreatePost", param);
+
+                db.Execute("sp_CreatePost", param, commandType: CommandType.StoredProcedure);
+
+                db.Close();
             }
         }
-
-        //public void DeactivatePost(int id)
-        //{
-        //    using (IDbConnection db = new SqlConnection(connectionString))
-        //    {
-        //        db.Query<Article>("UPDATE Articles set IsActive = 0 WHERE ID = @Id", new { id }).FirstOrDefault();
-        //    }
-        //}
 
         public void DeletePost()
         {
@@ -106,15 +100,6 @@ namespace SimpleBlogMVC.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 return db.Query<Article>("SELECT * FROM Articles WHERE OnHomePage=1").ToList();
-            }
-        }
-
-        public void ExecuteWithoutReturn(string procedurName, DynamicParameters param = null)
-        {
-            using (IDbConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                con.Execute(procedurName, param, commandType: CommandType.StoredProcedure);
             }
         }
     }
