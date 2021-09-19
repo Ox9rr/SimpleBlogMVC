@@ -11,7 +11,7 @@ namespace SimpleBlogMVC.Models
     public interface IBlog
     {
         void CreatePost(Article article);
-        Article EditPost(int id);
+        Article EditPost(Article article);
         void DeletePost();
         //void DeactivatePost(int id);
         Article GetPost(string articleUrl);
@@ -69,7 +69,8 @@ namespace SimpleBlogMVC.Models
                 db.Execute("sp_CreatePost", param, commandType: CommandType.StoredProcedure);
 
                 db.Close();
-                return db.Query<Article>("Update Articles SET WHERE ID = @Id", new { id }).FirstOrDefault();
+                //return db.Query<Article>("Update Articles SET WHERE ID = @Id", new { id }).FirstOrDefault();
+                return null;
             }
         }
 

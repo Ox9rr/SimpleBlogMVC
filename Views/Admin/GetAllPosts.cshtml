@@ -54,6 +54,7 @@
                                 <td>@item.IsActive</td>
                                 <td>
                                     <a asp-controller="Home" asp-action="GetPostByID" asp-route-url="@item.Id">Det</a>
+                                    <a asp-controller="Home" asp-action="EditPost" asp-route-url="@item.Id">Edit</a>
                                     @*<a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>*@
                                 </td>
                             </tr>

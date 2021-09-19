@@ -40,6 +40,17 @@ namespace SimpleBlogMVC.Controllers
             return RedirectToAction("GetAllPosts");
         }
 
+        public IActionResult EditPost()
+        {
+            return View();
+        }
+
+        public IActionResult EditPost(Article article)
+        {
+            blog.EditPost(article);
+            return RedirectToAction("GetAllPosts");
+        }
+
         [Route("admin/articles")]
         public IActionResult GetAllPosts()
         {

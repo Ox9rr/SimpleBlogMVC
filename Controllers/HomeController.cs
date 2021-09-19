@@ -48,9 +48,9 @@ namespace SimpleBlogMVC.Controllers
             return View(blog.GetArticles());
         }
 
-        public IActionResult EditPost(int id)
+        public IActionResult EditPost(Article article)
         {
-            return View(blog.EditPost(id));
+            return View(blog.EditPost(article));
         }
 
 
