@@ -52,11 +52,24 @@ namespace SimpleBlogMVC.Models
             throw new NotImplementedException();
         }
 
-        public Article EditPost(int id)
+        public Article EditPost(Article article)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Article>("Update * FROM Articles WHERE ID = @Id", new { id }).FirstOrDefault();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@Id", article.Id);
+                param.Add("@Title", article.Title);
+                param.Add("@Description", article.Description);
+                param.Add("@DateCreation", article.DateCreation);
+                param.Add("@IsActive", article.IsActive);
+                param.Add("@OnHomePage", article.OnHomePage);
+                param.Add("@ArticleUrl", article.ArticleUrl);
+                param.Add("@Content", article.Content);
+
+                db.Execute("sp_CreatePost", param, commandType: CommandType.StoredProcedure);
+
+                db.Close();
+                return db.Query<Article>("Update Articles SET WHERE ID = @Id", new { id }).FirstOrDefault();
             }
         }
 
