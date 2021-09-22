@@ -33,25 +33,30 @@ namespace SimpleBlogMVC.Controllers
 
         [HttpPost]
         [ActionName("CreatePost")]
-        [Route("admin/create")]
+        //[Route("admin/create")]
         public IActionResult CreatePost(Article article)
         {
             blog.CreatePost(article);
             return RedirectToAction("GetAllPosts");
         }
 
-        public IActionResult EditPost()
+
+        public IActionResult EditPost(int id)
         {
-            return View();
+            Article article = blog.GetPostByID(id);
+            if(article != null || id > 0)
+                return View(article);
+            return NotFound();
         }
 
+        [HttpPost]
         public IActionResult EditPost(Article article)
         {
             blog.EditPost(article);
             return RedirectToAction("GetAllPosts");
         }
 
-        [Route("admin/articles")]
+        //[Route("admin/articles")]
         public IActionResult GetAllPosts()
         {
             return View(blog.GetArticles());
