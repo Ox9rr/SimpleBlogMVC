@@ -32,7 +32,7 @@ namespace SimpleBlogMVC.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 DynamicParameters param = new DynamicParameters();
-                param.Add("@Id", article.Id);
+                //param.Add("@Id", article.Id);
                 param.Add("@Title", article.Title);
                 param.Add("@Description", article.Description);
                 param.Add("@DateCreation", article.DateCreation);
