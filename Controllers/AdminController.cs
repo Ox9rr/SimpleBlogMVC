@@ -44,7 +44,7 @@ namespace SimpleBlogMVC.Controllers
         public IActionResult EditPost(int id)
         {
             Article article = blog.GetPostByID(id);
-            if(article != null || id > 0)
+            if (article != null || id > 0)
                 return View(article);
             return NotFound();
         }
@@ -77,6 +77,16 @@ namespace SimpleBlogMVC.Controllers
                     Exception ex;
                 }
             return NotFound();
+        }
+
+        [HttpGet]
+        public IActionResult DeletePost(int id)
+        {
+            blog.DeletePost(id);
+            if (id == 0)
+                return NotFound();
+            return RedirectToAction("GetAllPosts");
+
         }
 
         //[Route("admin/create")]

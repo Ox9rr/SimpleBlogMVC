@@ -12,7 +12,7 @@ namespace SimpleBlogMVC.Models
     {
         void CreatePost(Article article);
         Article EditPost(Article article);
-        void DeletePost();
+        void DeletePost(int Id);
         //void DeactivatePost(int id);
         Article GetPost(string articleUrl);
         Article GetPostByID(int id);
@@ -47,9 +47,13 @@ namespace SimpleBlogMVC.Models
             }
         }
 
-        public void DeletePost()
+        public void DeletePost(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                var sqlQuery = "DELETE FROM Articles WHERE Id = @id";
+                db.Execute(sqlQuery, new { id });
+            }
         }
 
         public Article EditPost(Article article)
