@@ -3,6 +3,7 @@ using System;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using System.Data;
+using System.Linq;
 
 namespace SimpleBlogMVC.DataBaseLogger
 {
@@ -19,6 +20,7 @@ namespace SimpleBlogMVC.DataBaseLogger
         {
             string messageDescription = "Created new Article by user: user with new id: " + article.Id;
             objLogger(messageDescription);
+            LastArticleId(article);
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 DynamicParameters param = new DynamicParameters();
@@ -52,10 +54,14 @@ namespace SimpleBlogMVC.DataBaseLogger
             };
         }
 
-        //DynamicParameters param(DbLoggerModel logModel, Article article)
-        //{
-
-        //    param.Add("@LogDescrption", logModel.LogDescrption);
-        //}
+        public Article LastArticleId(Article article)
+        {
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                var SomeObj = db.Query<Article>("SELECT IDENT_CURRENT('Articles')");
+                var id = SomeObj.FirstOrDefault();
+                return id;
+            }
+        }
     }
 }
