@@ -18,9 +18,9 @@ namespace SimpleBlogMVC.DataBaseLogger
 
         public void CreateArticleLog(Article article)
         {
-            string messageDescription = "Created new Article by user: user with new id: " + article.Id;
-            objLogger(messageDescription);
-            LastArticleId(article);
+            var id = LastArticleId(article);
+            string messageDescription = "Created new Article by user: user with new id: " + id;
+            objLogger(messageDescription);            
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 DynamicParameters param = new DynamicParameters();
@@ -54,11 +54,11 @@ namespace SimpleBlogMVC.DataBaseLogger
             };
         }
 
-        public Article LastArticleId(Article article)
+        public int LastArticleId(Article article)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var SomeObj = db.Query<Article>("SELECT IDENT_CURRENT('Articles')");
+                var SomeObj = db.Query<int>("SELECT IDENT_CURRENT('Articles')").ToList();
                 var id = SomeObj.FirstOrDefault();
                 return id;
             }
