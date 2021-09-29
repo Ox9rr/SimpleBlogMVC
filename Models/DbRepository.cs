@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Dapper;
+using SimpleBlogMVC.DataBaseLogger;
 
 namespace SimpleBlogMVC.Models
 {
@@ -42,6 +43,8 @@ namespace SimpleBlogMVC.Models
                 param.Add("@Content", article.Content);
 
                 db.Execute("sp_CreatePost", param, commandType: CommandType.StoredProcedure);
+                var dbLogger = new DbLogger(connectionString);
+                dbLogger.CreateArticleLog(article);
 
                 db.Close();
             }

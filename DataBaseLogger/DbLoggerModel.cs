@@ -9,8 +9,8 @@ namespace SimpleBlogMVC.DataBaseLogger
     public class DbLoggerModel
     {
         public int Id { get; set; }
-        public string Description { get; set; }
-        DateTime DateLog { get; set; }
-        public User user;
+        public string LogDescrption { get; set; }
+        public DateTime DateLog { get; set; }
+        public User userId;
     }
 }
