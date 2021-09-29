@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace SimpleBlogMVC.DataBaseLogger
 {
-    public class IDbLogger
+    interface IDbLogger
     {
+        
     }
 }
