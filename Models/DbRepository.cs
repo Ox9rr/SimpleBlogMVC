@@ -64,7 +64,7 @@ namespace SimpleBlogMVC.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 DynamicParameters param = new DynamicParameters();
-                //param.Add("@Id", article.Id);
+                param.Add("@Id", article.Id);
                 param.Add("@Title", article.Title);
                 param.Add("@Description", article.Description);
                 param.Add("@DateCreation", article.DateCreation);
@@ -73,7 +73,7 @@ namespace SimpleBlogMVC.Models
                 param.Add("@ArticleUrl", article.ArticleUrl);
                 param.Add("@Content", article.Content);
 
-                db.Execute("sp_CreatePost", param, commandType: CommandType.StoredProcedure);
+                db.Execute("sp_EditPost", param, commandType: CommandType.StoredProcedure);
 
                 db.Close();
                 //return db.Query<Article>("Update Articles SET WHERE ID = @Id", new { id }).FirstOrDefault();
