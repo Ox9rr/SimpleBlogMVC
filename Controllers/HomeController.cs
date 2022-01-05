@@ -57,7 +57,15 @@ namespace SimpleBlogMVC.Controllers
         [Route("justtest")]
         public IActionResult Test()
         {
-            return View(blog.GetArticles());
+            try
+            {
+                return View(blog.GetArticles());
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                return View();
+            }
         }
         [Route("hesthomepage")]
         public IActionResult TestHomePage()

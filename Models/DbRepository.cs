@@ -83,6 +83,7 @@ namespace SimpleBlogMVC.Models
 
         public List<Article> GetArticles()
         {
+            
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 List<Article> testArticle = new List<Article>();

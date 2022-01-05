@@ -1667,19 +1667,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\619mi\\.nuget\\packages\\": {}
+    "C:\\Users\\mikhail.nikulcha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\619mi\\Desktop\\SimpleBlogMVC\\SimpleBlogMVC\\SimpleBlogMVC.csproj",
+      "projectUniqueName": "C:\\Users\\mikhail.nikulcha\\Desktop\\blog\\SimpleBlogMVC\\SimpleBlogMVC.csproj",
       "projectName": "SimpleBlogMVC",
-      "projectPath": "C:\\Users\\619mi\\Desktop\\SimpleBlogMVC\\SimpleBlogMVC\\SimpleBlogMVC.csproj",
-      "packagesPath": "C:\\Users\\619mi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\619mi\\Desktop\\SimpleBlogMVC\\SimpleBlogMVC\\obj\\",
+      "projectPath": "C:\\Users\\mikhail.nikulcha\\Desktop\\blog\\SimpleBlogMVC\\SimpleBlogMVC.csproj",
+      "packagesPath": "C:\\Users\\mikhail.nikulcha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mikhail.nikulcha\\Desktop\\blog\\SimpleBlogMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\619mi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mikhail.nikulcha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1691,6 +1691,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -1702,6 +1703,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Dapper": {
             "target": "Package",
@@ -1730,7 +1732,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
